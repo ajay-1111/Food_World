@@ -24,7 +24,7 @@ namespace Food_World.DBContext
         }
 
         /// <summary>Gets or sets the Registration Table.</summary>
-        public virtual DbSet<UserRegistrationContext> TblRegisterUser { get; set; } = null!;
+        public virtual DbSet<UserRegistrationContext> AspNetUsers { get; set; } = null!;
 
         /// <summary>
         /// The on model creation after DB Mifration.
