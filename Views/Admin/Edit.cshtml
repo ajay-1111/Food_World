@@ -1,12 +1,13 @@
 ﻿@model Food_World.Models.EFDBContext.FoodItemsEntity
 
 @{
-    ViewData["Title"] = "Add Food Item";
+    ViewData["Title"] = "Edit Food Item";
 }
 
-<form asp-action="Create" asp-controller="Admin" method="post" enctype="multipart/form-data">
+<form asp-action="Edit" asp-controller="Admin" method="post" enctype="multipart/form-data">
     <div class="row g-3">
-        <div class="cust_btn row g-3 col-form-label-lg">Create New Food Item</div>
+        <div class="cust_btn row g-3 col-form-label-lg">Edit Food Item</div>
+        <input type="hidden" asp-for="Id" />
         <div class="cust_pg_body row g-3">
             <div class="form-group col-md-3">
                 <span class="colorred"><b>*</b></span>
@@ -30,7 +31,7 @@
                 <span class="colorred"><b>*</b></span>
                 <label asp-for="FoodItemCategoryId"></label>
                 <select asp-for="FoodItemCategoryId" class="form-control-ddl" required>
-                    <option value="1" selected>Burger</option>
+                    <option value="1">Burger</option>
                     <option value="2">Pizza</option>
                     <option value="3">Dessert</option>
                 </select>
@@ -39,7 +40,7 @@
             <div class="form-group col-md-3">
                 <span class="colorred"><b>*</b></span>
                 <label asp-for="ImageUrl"></label>
-                <input asp-for="ImageUrl" class="form-control" type="file" required/>
+                <input asp-for="ImageUrl" class="form-control" type="file" value="@Model.ImageUrl" disabled />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group col-md-9">
@@ -48,7 +49,7 @@
                 <span asp-validation-for="ItemDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-sm cust_btn">Create Food Item</button>
+                <button type="submit" class="btn btn-sm cust_btn">Update Food Item</button>
             </div>
         </div>
     </div>

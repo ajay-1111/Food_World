@@ -85,7 +85,7 @@ namespace Food_World.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Products");
+                    return RedirectToAction("Index", "FoodItems");
                 }
 
                 ModelState.AddModelError(string.Empty, "Email or Password is incorrect.");

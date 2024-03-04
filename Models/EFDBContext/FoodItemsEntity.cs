@@ -14,10 +14,13 @@ namespace Food_World.Models.EFDBContext
         public int Id { get; set; }
 
         [DisplayName("Item Name")]
+        [Required]
         public string ItemName { get; set; }
 
+        [Required]
         public double Cost { get; set; }
 
+        [Required]
         public double Rating { get; set; }
 
         public string ItemDescription { get; set; }
@@ -26,6 +29,7 @@ namespace Food_World.Models.EFDBContext
         public string ImageUrl { get; set; }
 
         [DisplayName("Food Item Category")]
+        [Required]
         public FoodItemCategory FoodItemCategoryId { get; set; }
 
         public DateTime CreatedDateTime { get; set; }
