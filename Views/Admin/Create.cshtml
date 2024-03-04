@@ -1,0 +1,52 @@
+﻿@model Food_World.Models.EFDBContext.FoodItemsEntity
+
+<form asp-action="Create" asp-controller="Admin" method="post" enctype="multipart/form-data">
+    <div class="row g-3">
+        <div class="cust_btn row g-3 col-form-label-lg">Create New Product</div>
+        <div class="cust_pg_body row g-3">
+            <div class="form-group col-md-3">
+                <span class="colorred"><b>*</b></span>
+                <label asp-for="ItemName"></label>
+                <input asp-for="ItemName" class="form-control" required />
+                <span asp-validation-for="ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <span class="colorred"><b>*</b></span>
+                <label asp-for="Cost"></label>
+                <input asp-for="Cost" class="form-control" required />
+                <span asp-validation-for="Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <span class="colorred"><b>*</b></span>
+                <label asp-for="Rating"></label>
+                <input asp-for="Rating" class="form-control" required />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <span class="colorred"><b>*</b></span>
+                <label asp-for="FoodItemCategoryId"></label>
+                <select asp-for="FoodItemCategoryId" class="form-control-ddl" required>
+                    <option value="1" selected>Burger</option>
+                    <option value="2">Pizza</option>
+                    <option value="3">Dessert</option>
+                </select>
+                <span asp-validation-for="FoodItemCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <span class="colorred"><b>*</b></span>
+                <label asp-for="ImageUrl"></label>
+                <input asp-for="ImageUrl" class="form-control" type="file" required/>
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-9">
+                <span class="colorred"><b>*</b></span>
+                <label asp-for="ItemDescription"></label>
+                <input asp-for="ItemDescription" class="form-control" />
+                <span asp-validation-for="ItemDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm cust_btn">Create Food Item</button>
+            </div>
+        </div>
+    </div>
+</form>
