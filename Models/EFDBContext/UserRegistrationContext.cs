@@ -33,5 +33,7 @@ namespace Food_World.Models.EFDBContext
         /// <summary>Gets or sets the Password.</summary>
         [StringLength(50)]
         public string Password { get; set; }
+
+        public bool IsAdmin { get; set; } = false;
     }
 }
