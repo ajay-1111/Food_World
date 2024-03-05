@@ -1,0 +1,49 @@
+﻿@model Food_World.Models.Pagination<Food_World.Models.EFDBContext.FoodItemsEntity>
+
+<h2>Food Items List</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Cost</th>
+                <th>Rating</th>
+                <th>Category</th>
+                <th>Item Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fooditem in Model)
+            {
+                <tr>
+                    <td>@fooditem.ItemName</td>
+                    <td>$@fooditem.Cost</td>
+                    <td>@fooditem.Rating</td>
+                    <td>@fooditem.FoodItemCategoryId</td>
+                    <td>@fooditem.ItemDescription</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Admin", new { id = fooditem.Id })" class="btn btn-outline-primary">Edit Item</a>
+                        <a href="@Url.Action("Delete", "Admin", new { id = fooditem.Id })" class="btn btn-outline-danger">Delete Item</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center">
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-action="Index" asp-route-page="@(Model.PageIndex - 1)" class="btn btn-outline-primary">Previous</a>
+    }
+    @if (Model.HasNextPage)
+    {
+        <a asp-action="Index" asp-route-page="@(Model.PageIndex + 1)" class="btn btn-outline-primary">Next</a>
+    }
+</div>
+
+<div class="text-center mt-4">
+    <a href="@Url.Action("Create", "Admin")" class="btn btn-sm cust_btn">Add New Food Item</a>
+</div>

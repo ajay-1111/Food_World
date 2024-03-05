@@ -2,7 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    html, body {
+        height: 100%;
+    }
+
+    .carousel-item img {
+        object-fit: fill;
+        height: 76vh;
+        width: 100%;
+    }
+</style>
+
+<div id="carouselExampleInterval" class="carousel slide mb-3" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+            <img src="Images/Food.jpg" class="d-block w-100" alt="Food">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="Images/Burger.jpg" class="d-block w-100" alt="Burger">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="Images/Pizza.jpg" class="d-block w-100" alt="Pizza">
+        </div>
+        <div class="carousel-item">
+            <img src="Images/Dessert.jpg" class="d-block w-100" alt="Dessert">
+        </div>
+    </div>
 </div>
