@@ -41,6 +41,7 @@ namespace Food_World.Controllers
                     ItemName = fooditem.ItemName,
                     Cost = fooditem.Cost,
                     Rating = fooditem.Rating,
+                    ItemDescription = fooditem.ItemDescription,
                     Id = fooditem.Id,
                 };
 

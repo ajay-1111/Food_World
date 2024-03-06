@@ -41,7 +41,7 @@ namespace Food_World.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(FoodItemsEntity fooditem, IFormFile? productImage)
+        public async Task<IActionResult> Create(FoodItemsEntity fooditem, IFormFile? ImageUrl)
         {
             TempData["AddSuccess"] = null;
             TempData["AddError"] = null;
@@ -51,13 +51,13 @@ namespace Food_World.Controllers
                 try
                 {
                     // Check if a file is uploaded
-                    if (productImage is { Length: > 0 })
+                    if (ImageUrl is { Length: > 0 })
                     {
                         // Generate a unique filename for the image
-                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(productImage.FileName);
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(ImageUrl.FileName);
 
                         // Get the path of the wwwroot/img folder where images will be stored
-                        var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                        var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "fooditems_images");
 
                         // Combine the unique filename with the path to store the image
                         var filePath = Path.Combine(uploadsFolder, uniqueFileName);
@@ -65,7 +65,7 @@ namespace Food_World.Controllers
                         // Copy the uploaded file to the specified path
                         await using (var stream = new FileStream(filePath, FileMode.Create))
                         {
-                            await productImage.CopyToAsync(stream);
+                            await ImageUrl.CopyToAsync(stream);
                         }
 
                         // Update the ImageUrl property of the product with the new filename
